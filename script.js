@@ -81,3 +81,15 @@ document.querySelectorAll('header nav a').forEach(anchor => {
     });
   });
 });
+
+/* dark/light mode */
+let darkModeIcon = document.querySelector('#darkMode-icon');
+darkModeIcon.onclick = () => {
+    darkModeIcon.classList.toggle('bx-sun');
+    document.body.classList.toggle('dark-mode');
+    if(darkModeIcon.classList.contains('bx-sun')) {
+        localStorage.setItem('dark-mode', 'enabled');
+    } else {
+        localStorage.setItem('dark-mode', 'disabled');
+    }
+};
