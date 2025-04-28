@@ -39,6 +39,12 @@ body {
     transition: .5s;
 }
 
+.header-icons {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
 .header.sticky {
     background: var(--bg-color);
     box-shadow: 0 .1rem 1rem var(--shadow-color);
@@ -1063,10 +1069,14 @@ h1, h2, h3, .heading {
 }
 
 @media (max-width: 991px) {
-    .navbar a:nth-child(1),
-    .navbar a:nth-child(2) {
-        color: var(--main-color);
+    .navbar {
+        gap: 1.5rem; /* Reduce gaps on smaller screens */
     }
+    
+    .navbar a {
+        margin-right: 0.5rem;
+    }
+}
 
     .navbar a.active::before {
         background: var(--main-color);
@@ -1102,16 +1112,22 @@ h1, h2, h3, .heading {
 }
 
 @media (max-width: 768px) {
+    .header {
+        padding: 2rem 4%; /* Reduce padding on smaller screens */
+    }
+    
+
+@media (max-width: 768px) {
     #menu-icon {
         display: block;
     }
 
     #darkMode-icon {
-        position: relative;
-        right: 7rem;
+        position: static;
+        right: auto;
         font-size: 2.6rem;
         color: var(--text-color);
-        margin-left: 2rem;
+        margin-left: 0;
     }
 
     .navbar {
@@ -1123,7 +1139,9 @@ h1, h2, h3, .heading {
         padding: 1 rem 3%;
         border-top: .1rem solid rgba(0, 0, 0, .2);
         box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
-        display: none;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
     }
 
     .navbar.active {
@@ -1132,9 +1150,12 @@ h1, h2, h3, .heading {
 
     .navbar a {
         display: block;
-        margin: 3rem 0;
-        font-size: 2rem;
+        margin-right: 1rem;
+        position: relative;
+        font-size: 1.7rem;
         color: var(--text-color);
+        font-weight: 500;
+
     }
 
     .navbar a:nth-child(1),
