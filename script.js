@@ -2,7 +2,7 @@ window.onscroll = () => {
 let header = document.querySelector(".header");
 header.classList.toggle("sticky", window.scrollY > 100);
 };
-
+/* menu icon navbar/
 let menuIcon = document.querySelector('#menu-icon');
 let navbar = document.querySelector('.navbar');
 menuIcon.onclick = () => {
@@ -25,7 +25,7 @@ window.onscroll = () => {
             });
         };
     });
-
+/* sticky navbar /
 let header = document.querySelector('header');
 header.classList.toggle('sticky', window.scrollY > 100);
 / remove menu icon navbar when click navbar link (scroll) /
@@ -54,13 +54,3 @@ ScrollReveal().reveal('.home-content, .heading', { origin: 'top' });
 ScrollReveal().reveal('.home-img, .skills-container, .projects-box, .certifications-container, .experience-container, .contact form', { origin: 'bottom' });
 ScrollReveal().reveal('.home-content h1, .about-img', { origin: 'left' });
 ScrollReveal().reveal('.home-content p, .about-content', { origin: 'right' });
-// Add this to your script.js
-document.querySelectorAll('header nav a').forEach(anchor => {
-  anchor.addEventListener('click', function(e) {
-    e.preventDefault();
-    const targetId = this.getAttribute('href');
-    document.querySelector(targetId).scrollIntoView({
-      behavior: 'smooth'
-    });
-  });
-});
