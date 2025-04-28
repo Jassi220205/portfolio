@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-* {
+ {
     margin: 0;
     font-family: 'Poppins', sans-serif;
     box-sizing: border-box;
@@ -312,8 +311,7 @@ span {
     font-size: 1.6rem;
     line-height: 1.5;
 }
-=======
-* {
+ {
     margin: 0;
     font-family: var(--body-font);
     box-sizing: border-box;
@@ -1275,4 +1273,3 @@ h1, h2, h3, .heading {
         margin-top: 2rem;
     }
 }
->>>>>>> bef229af906b4299ed59d93edb936cbe78337731
