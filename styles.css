@@ -878,6 +878,7 @@ h1, h2, h3, .heading {
     text-align: center;
     padding: 60px 20px;
     background-color: var(--bg-color);
+    overflow-x: hidden
   }
   
   .heading {
@@ -887,7 +888,7 @@ h1, h2, h3, .heading {
   }
   
   .contact-form {
-    max-width: 600px;
+   width: 100%;
     margin: 0 auto;
     padding: 30px;
     background-color: var(--bg-color);
@@ -904,11 +905,13 @@ h1, h2, h3, .heading {
     transition: .5s ease;
   }
   
+@media (max-width: 600px) {
   .form-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
   }
+}
   
   .form-group {
     position: relative;
@@ -1095,11 +1098,11 @@ h1, h2, h3, .heading {
     }
 
     #darkMode-icon {
-        position: absolute;
+        position: relative;
         right: 7rem;
         font-size: 2.6rem;
         color: var(--text-color);
-        margin-bottom: .1rem;
+        margin-left: 2rem;
     }
 
     .navbar {
