@@ -55,6 +55,7 @@ body {
     align-items: center;
     flex-wrap: wrap; /* Allows wrapping on smaller screens */
     max-width: 70%; /* Prevent expanding too wide */
+    gap:2rem;
 }
 
 .logo {
