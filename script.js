@@ -1,10 +1,9 @@
-<<<<<<< HEAD
 window.onscroll = () => {
 let header = document.querySelector(".header");
 
 header.classList.toggle("sticky", window.scrollY > 100);
 };
-=======
+
 /* menu icon navbar*/
 let menuIcon = document.querySelector('#menu-icon');
 let navbar = document.querySelector('.navbar');
@@ -71,4 +70,3 @@ ScrollReveal().reveal('.home-content, .heading', { origin: 'top' });
 ScrollReveal().reveal('.home-img, .skills-container, .projects-box, .certifications-container, .experience-container, .contact form', { origin: 'bottom' });
 ScrollReveal().reveal('.home-content h1, .about-img', { origin: 'left' });
 ScrollReveal().reveal('.home-content p, .about-content', { origin: 'right' });
->>>>>>> bef229af906b4299ed59d93edb936cbe78337731
