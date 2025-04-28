@@ -1,95 +1,132 @@
-window.onscroll = () => {
-let header = document.querySelector(".header");
+// Wait for the DOM to fully load
+document.addEventListener('DOMContentLoaded', function() {
+    // Get DOM elements
+    const header = document.querySelector('.header');
+    const menuIcon = document.querySelector('#menu-icon');
+    const navbar = document.querySelector('.navbar');
+    const darkModeIcon = document.querySelector('#darkMode-icon');
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('header nav a');
 
-header.classList.toggle("sticky", window.scrollY > 100);
-};
+    // Check for saved dark mode preference
+    if (localStorage.getItem('dark-mode') === 'enabled') {
+        document.body.classList.add('dark-mode');
+        darkModeIcon.classList.add('bx-sun');
+    }
 
-/* menu icon navbar*/
-let menuIcon = document.querySelector('#menu-icon');
-let navbar = document.querySelector('.navbar');
+    // Menu icon toggle
+    if (menuIcon) {
+        menuIcon.addEventListener('click', () => {
+            menuIcon.classList.toggle('bx-x');
+            navbar.classList.toggle('active');
+        });
+    }
 
-menuIcon.onclick = () => {
-    menuIcon.classList.toggle('bx-x');
-    navbar.classList.toggle('active');
-};
-
-/* scroll sections active link */
-
-let sections = document.querySelectorAll('section');
-let navLinks = document.querySelectorAll('header nav a');
-
-
-window.onscroll = () => {
-    sections.forEach(sec => {
-        let top = window.scrollY;
-        let offset = sec.offsetTop - 150;
-        let height = sec.offsetHeight;
-        let id = sec.getAttribute('id');
-
-        if(top >= offset && top < offset + height) {
-            navLinks.forEach(links => {
-                links.classList.remove('active');
-                document.querySelector('header nav a[href*=' + id + ']').classList.add('active');
+    // Smooth scroll for navigation links
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Close mobile menu when a link is clicked
+            menuIcon.classList.remove('bx-x');
+            navbar.classList.remove('active');
+            
+            // Get the target section id from href attribute
+            const targetId = this.getAttribute('href');
+            
+            // Scroll to the target section smoothly
+            document.querySelector(targetId).scrollIntoView({
+                behavior: 'smooth'
             });
-
-        };
+        });
     });
 
-/* sticky navbar */
-let header = document.querySelector('header');
-
-header.classList.toggle('sticky', window.scrollY > 100);
-
-/* remove menu icon navbar when click navbar link (scroll) */
-
-menuIcon.classList.remove('bx-x');
-navbar.classList.remove('active');
-};
-
-/* dark/light mode */
-let darkModeIcon = document.querySelector('#darkMode-icon');
-darkModeIcon.onclick = () => {
-    darkModeIcon.classList.toggle('bx-sun');
-    document.body.classList.toggle('dark-mode');
-    if(darkModeIcon.classList.contains('bx-sun')) {
-        localStorage.setItem('dark-mode', 'enabled');
-    } else {
-        localStorage.setItem('dark-mode', 'disabled');
+    // Dark/light mode toggle
+    if (darkModeIcon) {
+        darkModeIcon.addEventListener('click', () => {
+            darkModeIcon.classList.toggle('bx-sun');
+            document.body.classList.toggle('dark-mode');
+            
+            // Save preference to localStorage
+            if (darkModeIcon.classList.contains('bx-sun')) {
+                localStorage.setItem('dark-mode', 'enabled');
+            } else {
+                localStorage.setItem('dark-mode', 'disabled');
+            }
+        });
     }
-};
 
-/* scroll reveal */
-ScrollReveal({ 
-    reset: true,
-    distance: '80px',
-    duration: 2000,
-    delay: 200
-});
+    // Function to handle scroll events
+    function handleScroll() {
+        // Sticky header
+        header.classList.toggle('sticky', window.scrollY > 100);
+        
+        // Active link based on scroll position
+        let current = '';
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.offsetHeight;
+            
+            if (window.scrollY >= (sectionTop - 150)) {
+                current = section.getAttribute('id');
+            }
+        });
+        
+        // Update active class on nav links
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${current}`) {
+                link.classList.add('active');
+            }
+        });
+    }
 
-ScrollReveal().reveal('.home-content, .heading', { origin: 'top' });
-ScrollReveal().reveal('.home-img, .skills-container, .projects-box, .certifications-container, .experience-container, .contact form', { origin: 'bottom' });
-ScrollReveal().reveal('.home-content h1, .about-img', { origin: 'left' });
-ScrollReveal().reveal('.home-content p, .about-content', { origin: 'right' });
+    // Add scroll event listener
+    window.addEventListener('scroll', handleScroll);
 
-// Add this to your script.js
-document.querySelectorAll('header nav a').forEach(anchor => {
-  anchor.addEventListener('click', function(e) {
-    e.preventDefault();
-    const targetId = this.getAttribute('href');
-    document.querySelector(targetId).scrollIntoView({
-      behavior: 'smooth'
+    // Initialize ScrollReveal
+    const sr = ScrollReveal({
+        origin: 'top',
+        distance: '80px',
+        duration: 2000,
+        delay: 200,
+        reset: true
     });
-  });
+
+    // Apply ScrollReveal animations
+    sr.reveal('.home-content, .heading', { origin: 'top' });
+    sr.reveal('.home-img, .skills-container, .projects-box, .certifications-container, .experience-container, .contact form', { origin: 'bottom' });
+    sr.reveal('.home-content h1, .about-img', { origin: 'left' });
+    sr.reveal('.home-content p, .about-content', { origin: 'right' });
+
+    // Smooth scrolling for the entire page
+    document.documentElement.style.scrollBehavior = 'smooth';
 });
 
-/* dark/light mode */
-let darkModeIcon = document.querySelector('#darkMode-icon');
-darkModeIcon.onclick = () => {
-    darkModeIcon.classList.toggle('bx-sun');
-    document.body.classList.toggle('dark-mode');
-    if(darkModeIcon.classList.contains('bx-sun')) {
-        localStorage.setItem('dark-mode', 'enabled');
-    } else {
-        localStorage.setItem('dark-mode', 'disabled');
+// Add "Contact Me" button next to the navbar
+document.addEventListener('DOMContentLoaded', function() {
+    const navbar = document.querySelector('.navbar');
+    const headerIcons = document.querySelector('.header-icons');
+    
+    // Create contact button if it doesn't exist
+    if (!document.querySelector('.contact-btn')) {
+        const contactBtn = document.createElement('a');
+        contactBtn.href = '#contact';
+        contactBtn.className = 'contact-btn';
+        contactBtn.textContent = 'Contact Me';
+        
+        // Insert before header-icons
+        if (navbar && headerIcons) {
+            navbar.parentNode.insertBefore(contactBtn, headerIcons);
+            
+            // Add smooth scroll event listener
+            contactBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector('#contact').scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        }
     }
-};
+});
