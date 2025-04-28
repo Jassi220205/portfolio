@@ -262,23 +262,29 @@ span {
 }
 
 .certifications .certifications-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 2rem;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden
 }
 
 .certifications-container .certifications-box {
-    flex: 1 1 30rem;
+    width: 100%;
     background: var(--bg-color);
     padding: 3rem 2rem 4rem;
     border-radius: 2rem;
     box-shadow: 0 .1rem .5rem var(--shadow-color);
-    text-emphasis: center;
+    text-align: center;
     border-top: .6rem solid var(--main-color);
     border-bottom: .6rem solid var(--main-color);
     transition: .5s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
 }
 
 .certifications-container .certifications-box:hover {
