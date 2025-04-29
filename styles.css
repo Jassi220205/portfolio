@@ -1296,3 +1296,19 @@ h1, h2, h3, .heading {
         margin-top: 2rem;
     }
 }
+
+.dark-mode .btn {
+    color: #fdfdfd;
+}
+
+.dark-mode #darkMode-icon {
+    color: #fdfdfd;
+}
+
+.dark-mode .navbar a {
+    color: #fdfdfd;
+}
+
+.dark-mode .profession-box .profession {
+    background: var(--bg-color);
+}
