@@ -1,217 +1,257 @@
- {
+{
     margin: 0;
-    font-family: 'Poppins', sans-serif;
+    padding: 0;
     box-sizing: border-box;
-    text-decoration: none;
     border: none;
     outline: none;
+    text-decoration: none;
     scroll-behavior: smooth;
-}
-
-:root {
+  }
+  
+  :root {
+    /* Light‑mode palette */
     --bg-color: #fdfdfd;
-    --text-color: #5e214e;
-    --main-color: rosybrown;
+    --text-color: #4B2E2E;          /* Deep cozy brown */
+    --main-color: #b57676;          /* Accent */
+    --accent-color: #A9746E;        /* Warm rosewood */
+    --highlight-color: #D9B79C;     /* Creamy highlight */
     --shadow-color: rgba(0, 0, 0, .2);
-}
-
-html {
-    font-size: 62.5%;
+  
+    /* Fonts */
+    --heading-font: 'Playfair Display', serif;
+    --body-font: 'Poppins', sans-serif;
+  }
+  
+  /* Dark‑mode overrides (toggled    
+     by adding .dark-mode to <body>) */
+  .dark-mode {
+    --bg-color: #0b061f;
+    --text-color: #fdfdfd;
+    --shadow-color: rgba(0, 0, 0, .7);
+    --main-color: #d19898;
+  }
+  
+  /* =========================
+     Base Document Styling
+     ========================= */
+  html {
+    font-size: 62.5%;   /* 1 rem = 10 px (roughly) */
     overflow-x: hidden;
-}
-
-body {
+    scroll-padding-top: 20px; /* keeps anchors clear of the fixed header */
+  }
+  
+  body {
+    font-family: var(--body-font);
     background: var(--bg-color);
     color: var(--text-color);
-}
-
-.header {
+  }
+  
+  /* =========================
+     Header & Navigation
+     ========================= */
+  .header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     padding: 2rem 7%;
-    background: transparent;
     display: flex;
     align-items: center;
+    background: transparent;
     z-index: 100;
     transition: .5s;
-}
-
-.header.sticky {
+  }
+  
+  .header.sticky {
     background: var(--bg-color);
     box-shadow: 0 .1rem 1rem var(--shadow-color);
-}
-
-.logo {
+  }
+  
+  .logo {
     font-size: 2.5rem;
     color: var(--main-color);
     font-weight: 600;
     cursor: default;
     margin-right: auto;
-}
-
-.navbar a {
+  }
+  
+  /* --- Flex navigation row --- */
+  .navbar {
+    display: flex;
+    gap: 3.5rem;       /* visual spacing between links */
+    flex-wrap: wrap;   /* drops items to a new line if they overflow */
+    max-width: 100%;   /* never exceed header width */
+  }
+  
+  .navbar a {
     position: relative;
     font-size: 1.7rem;
-    color: var(--white-color);
     font-weight: 500;
-    margin-right: 3.5rem;
-}
-
-.header.sticky .navbar a {
-    color: var(--text-color);
-}
-
-.header.sticky .navbar a.active {
-    color: var(--main-color);
-}
-
-.navbar a.active::before {
-    content: '';
+    color: var(--highlight-color);
+  }
+  
+  .header.sticky .navbar a { color: var(--text-color); }
+  
+  /* Active‑link highlight */
+  .navbar a.active,
+  .header.sticky .navbar a.active { color: var(--main-color); }
+  
+  .navbar a.active::before {
+    content: "";
     position: absolute;
     left: 0;
     bottom: -6px;
     width: 100%;
     height: 2px;
-    background: wheat;
-}
-
-
-.header.sticky .navbar a::before {
+    background: brown;
+  }
+  
+  .header.sticky .navbar a::before {
     background: var(--main-color);
     opacity: .7;
-}
-
-#darkMode-icon {
+  }
+  
+  /* Icons */
+  #darkMode-icon {
     font-size: 2.4rem;
     color: black;
     cursor: pointer;
-}
-
-.header.sticky #darkMode-icon {
+  }
+  
+  .header.sticky #darkMode-icon {
     color: var(--text-color);
-}
-
-section {
+    opacity: .9;
+  }
+  
+  #menu-icon {
+    font-size: 3.6rem;
+    color: var(--text-color);
+    display: none;     /* shown at the mobile breakpoint */
+  }
+  
+  /* =========================
+     Generic Section Settings
+     ========================= */
+  section {
     min-height: 100vh;
     padding: 10rem 7% 2rem;
-}
-
-.home {
+  }
+  
+  /* =========================
+     Home Section
+     ========================= */
+  .home {
     display: flex;
     align-items: center;
-}
-
-.home .home-content {
-    max-width: 50rem;
-}
-
-.home-content h3 {
+  }
+  
+  .home .home-content { max-width: 50rem; }
+  
+  .home-content h3 {
     font-size: 3.2rem;
     font-weight: 700;
     line-height: .3;
     margin-bottom: 1rem;
-}
-
-.home-content h1 {
+  }
+  
+  .home-content h1 {
     font-size: 5.6rem;
     font-weight: 700;
     margin-top: 1rem;
-}
-
-.home-content p {
+  }
+  
+  .home-content p {
     font-size: 1.6rem;
     margin-bottom: 2rem;
-}
-
-.btn {
+  }
+  
+  /* Buttons */
+  .btn {
     display: inline-block;
     padding: 1.2rem 2.8rem;
-    background: var(--main-color);
-    border-radius: .6rem;
-    box-shadow: 0 .2rem .5rem var(--shadow-color);
-    font-size: 1.6rem;
-    color: var(--white-color);
-    letter-spacing: .1rem;
-    font-weight: 600;
-    transition: .5s ease;
     margin-top: 1rem;
+    border-radius: .6rem;
+    font-size: 1.6rem;
+    font-weight: 600;
+    letter-spacing: .1rem;
+    background: var(--main-color);
+    color: var(--white-color);
     border: .2rem solid transparent;
-}
-
-.btn:hover {
+    box-shadow: 0 .2rem .5rem var(--shadow-color);
+    transition: .5s ease;
+  }
+  
+  .btn:hover {
     background: transparent;
     color: var(--main-color);
     border-color: var(--main-color);
-}
-
-.home .profession-container {
+  }
+  
+  /* =========================
+     Profession Circle (Home)
+     ========================= */
+  .home .profession-container {
     position: absolute;
     top: 50%;
     right: 0;
     transform: translateY(-50%);
-    width: 770px;
-    height: 770px;
+    width: 768px;
+    height: 768px;
     overflow: hidden;
     pointer-events: none;
-}
-
-.home .profession-container .profession-box {
+  }
+  
+  .home .profession-container .profession-box {
     position: absolute;
     top: 0;
     right: 0;
-    width: 770px;
-    height: 770px;
+    width: 768px;
+    height: 768px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.home .profession-box .profession {
+    animation: professionRotate 10s ease-out infinite;
+  }
+  
+  @keyframes professionRotate {
+    0%,20%   { transform: rotate(0deg);   }
+    25%,45%  { transform: rotate(-90deg);  }
+    50%,70%  { transform: rotate(-180deg); }
+    75%,95%  { transform: rotate(-270deg); }
+    100%     { transform: rotate(-360deg); }
+  }
+  
+  .home .profession-box .profession {
     position: absolute;
     left: 0;
     display: flex;
     align-items: center;
     flex-direction: column;
     color: #aa4a4a;
-    transform: rotate(calc(360deg / 3 * var(--i)));
+    transform: rotate(calc(360deg / 4 * var(--i)));
     transform-origin: 384px;
     background: var(--bg-color);
     padding: 13px 0;
-}
-
-.home .profession-box .profession:nth-child(1) i{
-    margin-right: 15px;
-}
-
-.home .profession-box .profession:nth-child(2),
-.home .profession-box .profession:nth-child(4) {
-    padding-bottom: 20px;
-}
-
-
-.home .profession i {
-    font-size: 3.8rem;
-}
-
-.home .profession h3 {
-    font-size: 3.2rem;
+  }
+  
+  .home .profession i { font-size: 3.8rem; }
+  
+  .home .profession h3 {
+    font-size: 2rem;
     line-height: 1;
     font-weight: 600;
     margin-top: 1rem;
-}
-
-.home .profession-box .circle {
+  }
+  
+  .home .profession-box .circle {
     width: 560px;
     height: 560px;
     border: 3px solid brown;
     border-radius: 50%;
-
-}
-
-.home .profession-container .overlay {
+  }
+  
+  .home .profession-container .overlay {
     position: absolute;
     top: 0;
     right: 0;
@@ -219,112 +259,83 @@ section {
     height: 0;
     border-top: 384px solid var(--main-color);
     border-right: 384px solid var(--main-color);
-    border-bottom: 370px solid var(--main-color);
+    border-bottom: 384px solid var(--main-color);
     border-left: 384px solid transparent;
-}
-
-span {
-    color: var(--main-color);
-}
-
-.about {
+  }
+  
+  /* =========================
+     Generic Element Helpers
+     ========================= */
+  span         { color: var(--main-color); }
+  h1, h2, h3,
+  .heading     { font-family: var(--heading-font); color: var(--accent-color); letter-spacing: 1px; }
+  p, li, a,
+  .btn         { font-family: var(--body-font); font-size: 1.6rem; }
+  
+  /* =========================
+     About Section
+     ========================= */
+  .about {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 5rem;
-    background: whitesmoke;
-}
-
-.about-img img {
-    width: 40vw;
-}
-
-.heading {
-    font-size: 4.5rem;
-    text-align: center;
-    padding-bottom: 3rem;
-}
-
-.about-content {
+    background: var(--bg-color);
+  }
+  
+  .about-img img { width: 40vw; }
+  
+  .about-content {
     text-align: left;
     line-height: 1.2;
-}
-
-.about-content h3 {
-    font-size: 2rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-}
-
-.about-content p {
-    font-size: 1.6rem;
-    margin-bottom: 2rem 0 3rem;
-}
-
-.certifications .certifications-container {
+  }
+  
+  .about-content h3 { font-size: 2rem; font-weight: 600; margin-bottom: 1rem; }
+  .about-content p  { font-size: 1.6rem; margin-bottom: 2rem; }
+  
+  /* =========================
+     Certifications Section
+     ========================= */
+  .certifications .certifications-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 2rem;
-    width: 100%;
-    max-width: 100%;
-    overflow-x: hidden
-}
-
-.certifications-container .certifications-box {
-    width: 100%;
+  }
+  
+  .certifications-container .certifications-box {
     background: var(--bg-color);
     padding: 3rem 2rem 4rem;
     border-radius: 2rem;
-    box-shadow: 0 .1rem .5rem var(--shadow-color);
-    text-align: center;
     border-top: .6rem solid var(--main-color);
     border-bottom: .6rem solid var(--main-color);
+    box-shadow: 0 .1rem .5rem var(--shadow-color);
     transition: .5s ease;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100%;
-}
-}
-
-.certifications-container .certifications-box:hover {
+  }
+  
+  .certifications-container .certifications-box:hover {
     box-shadow: 0 .1rem 2rem var(--shadow-color);
     transform: scale(1.02);
+  }
+  
+  .certifications-box i   { font-size: 4rem; color: var(--text-color); margin-bottom: 1rem; }
+  .certifications-box h3  { font-size: 2rem; font-weight: 600; margin-bottom: 1rem; transition:.5s ease; }
+  .certifications-box p   { font-size: 1.6rem; line-height: 1.5; }
+  .certifications-box:hover h3 { color: var(--main-color); }
 
-}
-
-.certifications-box {
-    min-height: auto;
-    padding-bottom: 7rem;
-}
-.certifications-box i {
-    font-size: 4rem;
-    color: var(--main-color);
-    margin-bottom: 1rem;
-}
-.certifications-box h3 {
-    font-size: 2rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    transition: .5s ease;
+  /* ─── Desktop / tablet ─── */
+#darkMode-icon{
+    margin-left: 3rem;   /* tweak the value until the gap feels right */
 }
 
-.certifications-box:hover h3 {
-    color: var(--main-color);
-} 
-
-.certifications-box p {
-    font-size: 1.6rem;
-    line-height: 1.5;
-}
- {
-    margin: 0;
-    font-family: var(--body-font);
-    box-sizing: border-box;
-    text-decoration: none;
-    border: none;
-    outline: none;
-    scroll-behavior: smooth;
+/* ─── Mobile burger layout ─── */
+@media (max-width:768px){
+    /* keep the icon clear of the hamburger */
+    #darkMode-icon{
+        right: 8rem;     /* was 7rem – move it a bit farther left */
+    }
 }
 
 :root {
@@ -385,9 +396,9 @@ body {
 .navbar a {
     position: relative;
     font-size: 1.7rem;
-    color: var(--white-color);
+    color: var(--highlight-color);
     font-weight: 500;
-    margin-right: 3.5rem;
+    margin-right: 0;          /* ← was 3.5rem */
 }
 
 .header.sticky .navbar a {
