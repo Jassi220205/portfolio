@@ -54,3 +54,18 @@ ScrollReveal().reveal('.home-content, .heading', { origin: 'top' });
 ScrollReveal().reveal('.home-img, .skills-container, .projects-box, .certifications-container, .experience-container, .contact form', { origin: 'bottom' });
 ScrollReveal().reveal('.home-content h1, .about-img', { origin: 'left' });
 ScrollReveal().reveal('.home-content p, .about-content', { origin: 'right' });
+
+// Check if dark mode was previously enabled
+if(localStorage.getItem('dark-mode') === 'enabled') {
+    document.body.classList.add('dark-mode');
+    darkModeIcon.classList.add('bx-sun');
+}
+
+// Save preference to localStorage
+if(document.body.classList.contains('dark-mode')) {
+    localStorage.setItem('dark-mode', 'enabled');
+} else {
+    localStorage.setItem('dark-mode', 'disabled');
+}
+
+
