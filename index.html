@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jassmitha Jammu | ML Engineer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+  * {margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
+
+  /* DARK MODE (default: brown dominant) */
+  :root {
+    --bg: #3e2723;
+    --text: #f5f5dc;
+    --card: #4e342e;
+    --accent: #d7ccc8;
+  }
+
+  /* LIGHT MODE */
+  body.light {
+    --bg: #f5f5dc;
+    --text: #3e2723;
+    --card: #efebe9;
+    --accent: #6d4c41;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    line-height:1.6;
+    transition:0.3s ease;
+    padding-top:80px;
+  }
+
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+
+    padding:1.5rem 10%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    background: var(--bg);
+    border-bottom:1px solid var(--card);
+  }
+
+  nav a {
+    margin-left:2rem;
+    color:var(--text);
+    text-decoration:none;
+    font-size:0.9rem;
+  }
+
+  nav a:hover {opacity:0.7;}
+
+  .toggle-btn {
+    margin-left:2rem;
+    padding:0.4rem 0.8rem;
+    background:var(--accent);
+    border:none;
+    cursor:pointer;
+    border-radius:5px;
+    color:var(--bg);
+    font-weight:600;
+  }
+
+  .hero {padding:6rem 10%;max-width:900px;}
+  .hero h1 {font-size:3rem;font-weight:700;}
+  .hero h2 {color:var(--accent);margin:0.5rem 0 1rem;}
+  .hero p {max-width:600px;}
+
+  .buttons a {
+    display:inline-block;
+    margin-right:1rem;
+    margin-top:1.5rem;
+    padding:0.6rem 1.4rem;
+    background:var(--accent);
+    color:var(--bg);
+    border-radius:6px;
+    text-decoration:none;
+    font-weight:600;
+  }
+
+  section {padding:4rem 10%;}
+
+  .section-title {font-size:1.8rem;margin-bottom:2rem;}
+
+  .projects {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:1.5rem;
+  }
+
+  .card {
+    background:var(--card);
+    padding:1.5rem;
+    border-radius:10px;
+    transition:0.3s;
+  }
+
+  .card:hover {transform:translateY(-5px);}
+
+  .card p {
+    font-size:0.9rem;
+    margin-bottom:0.5rem;
+  }
+
+  .tech {
+    font-size:0.8rem;
+    color:var(--accent);
+  }
+
+  .experience-item {margin-bottom:2rem;}
+
+  #certifications a {
+    display:inline-block;
+    margin-top:0.5rem;
+    font-size:0.85rem;
+    color:var(--accent);
+    text-decoration:none;
+  }
+
+  #certifications a:hover {
+    text-decoration:underline;
+  }
+
+  footer {
+    text-align:center;
+    padding:2rem;
+    border-top:1px solid var(--card);
+  }
+
+  </style>
+
+</head>
+
+<body>
+
+<header>
+  <h3>Jassmitha</h3>
+  <nav>
+    <a href="#projects">Projects</a>
+    <a href="#stack">Stack</a>
+    <a href="#experience">Experience</a>
+    <a href="#extracurriculars">Extracurriculars</a>    
+    <a href="#certifications">Certifications</a>
+    <a href="#contact">Contact</a>
+    <button class="toggle-btn" onclick="toggleMode()">Toggle</button>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>Jassmitha Jammu</h1>
+  <h2>Machine Learning Engineer</h2>
+  <p>
+    AI/ML-focused Computer Science student with hands-on experience building predictive models, neural networks, and real-world applications. Demonstrated ability to lead technical teams and translate complex problems into scalable, data-driven solutions. Strong foundation in machine learning, deep learning, and system design with a focus on practical impact.
+  </p>
+
+  <div class="buttons">
+    <a href="Jassmitha_Jammu_Resume.pdf" target="_blank">View Resume</a>
+    <a href="Jassmitha_Jammu_Resume.pdf" download>Download Resume</a>
+    <a href="https://github.com/Jassi220205">GitHub</a>
+    <a href="https://www.linkedin.com/in/jassmitha-jammu/">LinkedIn</a>
+  </div>
+</section>
+
+<section id="projects">
+  <h2 class="section-title">Projects</h2>
+
+  <div class="projects">
+
+    <div class="card">
+      <h3>Menstrual Cycle Prediction System</h3>
+      <p>
+        Built a hybrid ML system combining Random Forest regression with a biological rule engine.
+      </p>
+      <p>
+        Reduced features from 80+ to 7 and achieved ~1–2 day MAE on real-world dataset.
+      </p>
+      <a href="https://github.com/Jassi220205/Period_cycle_predictor" target="_blank">View Project</a>
+      <div class="tech">Python • Scikit-learn • Pandas • NumPy</div>
+    </div>
+
+    <div class="card">
+      <h3>Overspeed Vehicle Detection</h3>
+      <p>
+        Developed a real-time vehicle violation detection system using YOLOv8 and OpenCV.
+      </p>
+      <p>
+        Implemented detection → tracking → speed estimation → violation pipeline.
+      </p>
+      <a href="https://github.com/Jassi220205/vehicle_violation_project" target="_blank">View Project</a>
+      <div class="tech">PyTorch • OpenCV • YOLOv8</div>
+    </div>
+
+  </div>
+</section>
+
+<section id="stack">
+  <h2 class="section-title">Technical Stack</h2>
+
+  <p>
+    <strong>Languages:</strong> Python, C, Java<br><br>
+
+    <strong>Machine Learning:</strong> Random Forest, Supervised Learning, Feature Engineering, Model Evaluation<br><br>
+
+    <strong>Deep Learning:</strong> PyTorch, CNNs, RNNs, LSTM, YOLOv8<br><br>
+
+    <strong>Libraries:</strong> NumPy, Scikit-learn, OpenCV<br><br>
+
+    <strong>Tools:</strong> Git, GitHub, Jupyter Notebook<br><br>
+
+    <strong>Generative AI:</strong> Prompt Engineering, Agentic Workflows
+  </p>
+</section>
+
+<section id="experience">
+  <h2 class="section-title">Experience</h2>
+
+  <div class="experience-item">
+    <h3>AIML Intern — InterviewBuddy</h3>
+    <p>Nov 2025 – Apr 2026</p>
+    <ul>
+      <li>Built multi-agent HR automation system reducing manual workload</li>
+      <li>Designed agent workflows and orchestration pipelines</li>
+      <li>Implemented vacancy triggering and structured communication</li>
+    </ul>
+  </div>
+
+  <div class="experience-item">
+    <h3>ML Intern — NextChapter</h3>
+    <p>May 2025 – July 2025</p>
+    <ul>
+      <li>Developed YOLOv8-based vehicle detection system</li>
+      <li>Designed real-time processing pipeline</li>
+    </ul>
+  </div>
+
+</section>
+
+<section id="extracurriculars">
+  <h2 class="section-title">Extracurriculars & Leadership</h2>
+
+  <div class="projects">
+
+    <div class="card">
+      <h3>Yuna — ML Engineer</h3>
+      <p>
+        Led development of an end-to-end intelligent system including cycle prediction, energy modeling, and task optimization.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Meta Developers Community — GITAM</h3>
+      <p>
+        Drove content strategy and engagement campaigns, increasing participation through structured digital initiatives.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Women Leaders Forum — GITAM</h3>
+      <p>
+        Managed social media campaigns and event promotion to improve community visibility and engagement.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Young Compete</h3>
+      <p>
+        Scaled platform to 1000+ users by integrating internship opportunities and executing growth strategies.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<section id="certifications">
+  <h2 class="section-title">Certifications</h2>
+
+  <div class="projects">
+
+    <div class="card">
+      <h3>AI Agents in Python</h3>
+      <p>Vanderbilt University (Coursera)</p>
+      <a href="https://drive.google.com/file/d/1CyLYc3w3-Cunh1QBO7OAP2_gPfP9kNr6/view?usp=drive_link" target="_blank">View Certificate</a>
+    </div>
+
+    <div class="card">
+      <h3>Prompt Engineering Specialization</h3>
+      <p>Vanderbilt University (Coursera)</p>
+      <a href="https://drive.google.com/file/d/1dsEWEre5OXIEqTY_4yYdj4bHsOhc_KWx/view?usp=drive_link" target="_blank">View Certificate</a>
+    </div>
+
+    <div class="card">
+      <h3>Introduction to Deep Learning</h3>
+      <p>Infosys Springboard</p>
+      <a href="https://drive.google.com/file/d/1YGxsRe7tRNGY-qQa85VPZpHSQVFCl4mc/view?usp=drive_link" target="_blank">View Certificate</a>
+    </div>
+
+    <div class="card">
+      <h3>Prompt Engineering</h3>
+      <p>Infosys Springboard</p>
+      <a href="https://drive.google.com/file/d/11bWbZnU7LGYeuxWJwLSeDAzZ9F-PmXiG/view?usp=drive_link" target="_blank">View Certificate</a>
+    </div>
+
+  </div>
+</section>
+
+<section id="contact">
+  <h2 class="section-title">Contact</h2>
+
+  <p>Email: jjassmitha@gmail.com</p>
+  <p>Phone: +91 9959220389</p>
+  <p>GitHub: github.com/Jassi220205</p>
+  <p>LinkedIn: linkedin.com/in/jassmitha-jammu</p>
+</section>
+
+<footer>
+  <p>© 2026 Jassmitha Jammu</p>
+</footer>
+
+<script>
+  function toggleMode() {
+    document.body.classList.toggle('light');
+  }
+</script>
+
+</body>
+</html>
